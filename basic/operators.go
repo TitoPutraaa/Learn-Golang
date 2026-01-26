@@ -21,5 +21,10 @@ func main() {
 
 	isSame := prsn1 == prsn2
 	fmt.Println(isSame) // ... etc
+
+	// basic logic 
+	// && = AND
+	// || = OR
+	// .! = Not
 	
 }
