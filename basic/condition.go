@@ -40,10 +40,29 @@ func main() {
 		fmt.Println("long name")
 	}
 
-	// fmt.Println("---Loop statement---")
-	// for i := 0; i < 5; i++ {
-	// 	fmt.Println("index ", i)
-	// }
+	fmt.Println("---Loop statement---")
+	for i := 0; i < 5; i++ {
+		fmt.Println("index ", i)
+	}
 
-	// for i; name 
+	names := []string {"tito", "putra", "bamulo"}
+	person := map[string]string {
+		"fname" : "joko",
+		"lname" : "widodo",
+	}
+	for i := 0; i < len(names); i++ {
+		fmt.Println("index", i, "name ", names[i]  )
+	}
+
+	for i, name := range names {
+		fmt.Println("index", i, "name", name)
+	}
+
+	for _, name := range names { // without index
+		fmt.Println("name", name)
+	}
+
+	for key, prsn := range person { // 
+		fmt.Println("key", key , "name", prsn)
+	}
 }
