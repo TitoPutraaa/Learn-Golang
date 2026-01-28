@@ -78,7 +78,22 @@ func asParamFilter(position string) int {
 	}
 }
 
+type paramFilter func(string)int
 
+func asParam2(name string, position string, salary paramFilter) string {
+	convString := strconv.Itoa(salary(position))
+	result := name + " as " + position + " with salary " +  convString
+	return result
+}
+
+type anon func(string) bool
+func anonim(name string, blok anon) string{
+	if  blok(name){
+		return name + " you are blocked "
+	} else {
+		return "welcome " + name
+	}
+}
 
 func main() {
 	sayHello()
@@ -98,7 +113,13 @@ func main() {
 	funcToVar2 := asValue
 	fmt.Println(funcToVar("function as value"))
 	fmt.Println(funcToVar2("function as value with difference var name"))
-	res := asParam("tito", "CTdasO", asParamFilter)
+	res := asParam("tito", "CEO", asParamFilter)
+	res2 := asParam2("putra", "CTO", asParamFilter)
 	fmt.Println(res)
+	fmt.Println(res2)
+	blocked := func(name string) bool {return name == "tito"}
+	fmt.Println(anonim("tito", blocked))
+	fmt.Println(anonim("putra", func(name string) bool {return name== "tito"} ))
+	
 
 }
