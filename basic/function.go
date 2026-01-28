@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func sayHello() {
@@ -56,6 +57,27 @@ func sumAll3(nums ...int) int {
 	return result
 }
 
+func asValue(use string) string {
+	return "this using " + use
+}
+
+func asParam(name string, position string, salary func(string) int) string {
+	convString := strconv.Itoa(salary(position))
+	result := name + " as " + position + " with salary " +  convString
+	return result
+}
+
+func asParamFilter(position string) int {
+	switch position {
+		case "CEO" : 
+			return 9000
+		case "CTO" :
+			return 7000
+		default :
+			return -1
+	}
+}
+
 
 
 func main() {
@@ -72,4 +94,11 @@ func main() {
 	data := []int {10,10,10,5}
 	fmt.Println(sumAll2(data)) // add new slice 
 	fmt.Println(sumAll3(data...)) // using variable argument, when already have slice
+	funcToVar := asValue
+	funcToVar2 := asValue
+	fmt.Println(funcToVar("function as value"))
+	fmt.Println(funcToVar2("function as value with difference var name"))
+	res := asParam("tito", "CTdasO", asParamFilter)
+	fmt.Println(res)
+
 }
