@@ -138,5 +138,13 @@ func main() {
 	fmt.Println(anonim("putra", func(name string) bool {return name== "tito"} ))
 	fmt.Println(factorialLoop(10))	
 	fmt.Println(factorialRecursive(10))	
+	counter := 0 // closure
+	increment := func() {
+		counter += 1
+	}
+	increment()
+	increment()
+	increment()
+	fmt.Println(counter)
 
 }
