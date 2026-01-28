@@ -95,6 +95,22 @@ func anonim(name string, blok anon) string{
 	}
 }
 
+func factorialLoop(value int) int {
+	num := 1
+	for i := value; i > 0; i-- {
+		num *= i 
+	}
+	return num
+}
+
+func factorialRecursive(value int) int {
+	if value == 1 {
+		return 1
+	} else {
+		return value * factorialRecursive(value-1)
+	}
+}
+
 func main() {
 	sayHello()
 	sayHelloTo("tito", "putra")
@@ -120,6 +136,7 @@ func main() {
 	blocked := func(name string) bool {return name == "tito"}
 	fmt.Println(anonim("tito", blocked))
 	fmt.Println(anonim("putra", func(name string) bool {return name== "tito"} ))
-	
+	fmt.Println(factorialLoop(10))	
+	fmt.Println(factorialRecursive(10))	
 
 }
