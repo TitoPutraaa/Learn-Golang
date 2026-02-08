@@ -46,6 +46,13 @@ func (animal Animal) GetAge() int {
 	return animal.age
 }
 
+// interface kosong
+func Ups() any {
+	// return true 
+	// return 21
+	return "this is interface kosong"
+}
+
 
 func main() {
 	var tito Customer
@@ -74,6 +81,6 @@ func main() {
 	Nyapa(abdul)
 	jerry := Animal{"Jerry", 1}
 	Nyapa(jerry)
-	
+	fmt.Println(Ups())
 	
 }
