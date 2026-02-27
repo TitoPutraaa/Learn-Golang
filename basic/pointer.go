@@ -39,13 +39,20 @@ func main() {
 	// PASS BY REFFERECE pointer
 	fmt.Println("-------------BY Reference-----------")
 	var num1 int = 67
+	fmt.Println(&num1)
 	fmt.Println(num1)
-	var num2 *int = &num1
+	var num2 *int = &num1  // num2 = addres of num1
+	var num3 **int = &num2 // pointer nya pointe wkwkw
 	// num2 := &num1
 	fmt.Println(num2)
-	*num2 = 1
+	fmt.Println(*num2)
+	fmt.Println(num3)
+	fmt.Println(*num3) // value of the addr
+	*num2 = 1          // because num2 is contain addres so we have to add * so that will cange is the value in that addr not the addr
+	// num2 = 3 ERROR because you can't change addr
 	fmt.Println(num1)
 	fmt.Println(*num2)
+	// & = address of something, * = derefference / when you have addr it's will make you go to see the value in that addr
 
 	// PASS BY VALUE default
 	fmt.Println("-------------BY Value-----------")
